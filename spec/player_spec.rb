@@ -3,6 +3,10 @@ require "player"
 describe Player do
   before { @player = Player.new("Laura") }
   context "#initialize" do
+    it "requires a name" do
+      expect { Player.new }.to raise_error(ArgumentError)
+    end
+
     it "initializes with a name" do
       expect(@player.name).to eq "Laura"
     end
