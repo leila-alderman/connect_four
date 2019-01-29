@@ -1,11 +1,11 @@
-require "game"
+require "connect_four/game"
 
-describe Game do
-  before { @game = Game.new("Alice", "Bob") }
+describe ConnectFour::Game do
+  before { @game = ConnectFour::Game.new("Alice", "Bob") }
 
   context "#initialize" do
     it "requires two names" do
-      expect { Game.new("Alice") }.to raise_error(ArgumentError)
+      expect { ConnectFour::Game.new("Alice") }.to raise_error(ArgumentError)
     end  
   
     it "initializes with a board" do
@@ -22,6 +22,10 @@ describe Game do
       expect(@game.player_2.marker).to eq "★"
     end
   end
+
+  # game.drop_piece
+
+  # game.get_status
 
 
 end

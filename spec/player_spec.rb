@@ -1,10 +1,10 @@
-require "player"
+require "connect_four/player"
 
-describe Player do
-  before { @player = Player.new("Laura", "X") }
+describe ConnectFour::Player do
+  before { @player = ConnectFour::Player.new("Laura", "X") }
   context "#initialize" do
     it "requires a name" do
-      expect { Player.new }.to raise_error(ArgumentError)
+      expect { ConnectFour::Player.new }.to raise_error(ArgumentError)
     end
 
     it "initializes with a name" do

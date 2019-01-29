@@ -1,7 +1,7 @@
-require "board"
+require "connect_four/board"
 
-describe Board do
-  before { @board = Board.new }
+describe ConnectFour::Board do
+  before { @board = ConnectFour::Board.new }
   context "#initialize" do
     it "creates an empty board" do
       expect(@board.grid[0]).to eq [" "," "," "," "," "," "]

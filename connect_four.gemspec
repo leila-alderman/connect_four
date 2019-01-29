@@ -5,7 +5,7 @@ require "connect_four/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "connect_four"
-  spec.version       = ConnectFour::VERSION
+  spec.version       = "0.1.0"
   spec.authors       = ["leila-alderman"]
   spec.email         = ["leila.alderman@gmail.com"]
 
