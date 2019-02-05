@@ -1,7 +1,7 @@
-require "connect_four/player"
+RSpec.describe ConnectFour::Player do
 
-describe ConnectFour::Player do
   before { @player = ConnectFour::Player.new("Laura", "X") }
+  
   context "#initialize" do
     it "requires a name" do
       expect { ConnectFour::Player.new }.to raise_error(ArgumentError)

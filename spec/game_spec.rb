@@ -1,9 +1,8 @@
-require "connect_four/game"
+RSpec.describe ConnectFour::Game do
 
-describe ConnectFour::Game do
   before { @game = ConnectFour::Game.new("Alice", "Bob") }
 
-  context "#initialize" do
+  xcontext "#initialize" do
     it "requires two names" do
       expect { ConnectFour::Game.new("Alice") }.to raise_error(ArgumentError)
     end  

@@ -1,7 +1,8 @@
-require_relative "./connect_four/version"
-require_relative "./connect_four/player"
-require_relative "./connect_four/board"
-require_relative "./connect_four/game"
+require "connect_four/version"
+require "connect_four/square"
+require "connect_four/player"
+require "connect_four/board"
+require "connect_four/game"
 
 module ConnectFour
   class Error < StandardError; end
