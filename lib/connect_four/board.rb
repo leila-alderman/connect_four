@@ -35,14 +35,46 @@ module ConnectFour
       for i in 0..(rows-1)
         for j in 0..(columns-1)
           element = grid[i][j]
-          element.left = grid[i][j-1]
-          element.right = grid[i][j+1]
-          element.top = grid [i-1] == nil ? nil : grid[i-1][j]
-          element.bottom = grid [i+1] == nil ? nil : grid[i+1][j]
-          element.up_left = grid[i-1] == nil ? nil : grid[i-1][j-1]
-          element.dwn_left = grid[i+1] == nil ? nil : grid[i+1][j-1]
-          element.up_right = grid[i-1] == nil ? nil : grid[i-1][j+1]
-          element.dwn_right = grid[i+1] == nil ? nil : grid[i+1][j+1]
+          if j-1 >= 0 && j-1 <= 6
+            element.left =  grid[i][j-1]
+          else
+            element.left = nil
+          end
+          if j+1 >= 0 && j+1 <= 6
+            element.right = grid[i][j+1]
+          else
+            element.right = nil
+          end
+          if i-1 >= 0 && i-1 <= 5
+            element.top = grid[i-1][j]
+          else
+            element.top = nil
+          end
+          if i+1 >= 0 && i+1 <= 5
+            element.bottom = grid[i+1][j]
+          else
+            element.bottom = nil
+          end
+          if (i-1 >= 0 && i-1 <= 5) && (j-1 >= 0 && j-1 <= 6)
+            element.up_left = grid[i-1][j-1]
+          else
+            element.up_left = nil
+          end
+          if (i+1 >= 0 && i+1 <= 5) && (j-1 >= 0 && j-1 <= 6)
+            element.dwn_left = grid[i+1][j-1]
+          else
+            element.dwn_left = nil
+          end
+          if (i-1 >= 0 && i-1 <= 5) && (j+1 >= 0 && j+1 <= 6)
+            element.up_right = grid[i-1][j+1]
+          else
+            element.up_right = nil
+          end
+          if (i+1 >= 0 && i+1 <= 5) && (j+1 >= 0 && j+1 <= 6)
+            element.dwn_right = grid[i+1][j+1]
+          else
+            element.dwn_right = nil
+          end
         end
       end
     end

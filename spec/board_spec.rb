@@ -34,12 +34,11 @@ RSpec.describe ConnectFour::Board do
     end
 
     it "can access squares farther to the left" do
-      new_node = @board.grid[2][5].left
-      expect(new_node.left).to equal @board.grid[2][3]
+      expect(@board.grid[2][5].left.left).to equal @board.grid[2][3]
     end
 
-    xit "returns nil outside of the board" do
-      expect(@board.grid[3][0].left).to be_nil
+    it "returns nil outside of the board" do
+      expect(@board.grid[3][0].left).to eql nil
     end
   end
 
@@ -48,12 +47,11 @@ RSpec.describe ConnectFour::Board do
       expect(@board.grid[4][4].right).to equal @board.grid[4][5]
     end
 
-    xit "can access squares farther to the right" do
-      new_node = @board.grid[3][5].right
-      expect(new_node.right).to equal @board.grid[3][3]
+    it "can access squares farther to the right" do
+      expect(@board.grid[3][2].right.right).to equal @board.grid[3][4]
     end
 
-    xit "returns nil outside of the board" do
+    it "returns nil outside of the board" do
       expect(@board.grid[1][6].right).to be_nil
     end
   end
@@ -67,7 +65,7 @@ RSpec.describe ConnectFour::Board do
       expect(@board.grid[2][0].top.top).to equal @board.grid[0][0]
     end
 
-    xit "returns nil outside of the board" do
+    it "returns nil outside of the board" do
       expect(@board.grid[0][4].top).to be_nil
     end
   end
@@ -81,8 +79,8 @@ RSpec.describe ConnectFour::Board do
       expect(@board.grid[2][5].left.left).to equal @board.grid[2][3]
     end
 
-    xit "returns nil outside of the board" do
-      expect(@board.grid[3][5].bottom).to be_nil
+    it "returns nil outside of the board" do
+      expect(@board.grid[5][3].bottom).to be_nil
     end
   end
 
