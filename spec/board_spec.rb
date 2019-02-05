@@ -48,7 +48,7 @@ RSpec.describe ConnectFour::Board do
       expect(@board.grid[4][4].right).to equal @board.grid[4][5]
     end
 
-    it "can access squares farther to the right" do
+    xit "can access squares farther to the right" do
       new_node = @board.grid[3][5].right
       expect(new_node.right).to equal @board.grid[3][3]
     end
@@ -63,7 +63,7 @@ RSpec.describe ConnectFour::Board do
       expect(@board.grid[3][3].top).to equal @board.grid[2][3]
     end
 
-    xit "can access squares farther to the top" do
+    it "can access squares farther to the top" do
       expect(@board.grid[2][0].top.top).to equal @board.grid[0][0]
     end
 
@@ -77,7 +77,7 @@ RSpec.describe ConnectFour::Board do
       expect(@board.grid[4][3].left).to equal @board.grid[4][2]
     end
 
-    xit "can access squares farther to the left" do
+    it "can access squares farther to the bottom" do
       expect(@board.grid[2][5].left.left).to equal @board.grid[2][3]
     end
 
@@ -91,7 +91,7 @@ RSpec.describe ConnectFour::Board do
       expect(@board.grid[3][3].up_left).to equal @board.grid[2][2]
     end
 
-    xit "can access squares farther to the upper left" do
+    it "can access squares farther to the upper left" do
       expect(@board.grid[2][2].up_left.up_left).to equal @board.grid[0][0]
     end
   end
@@ -101,7 +101,7 @@ RSpec.describe ConnectFour::Board do
       expect(@board.grid[3][3].dwn_left).to equal @board.grid[4][2]
     end
 
-    xit "can access squares farther to the lower left" do
+    it "can access squares farther to the lower left" do
       expect(@board.grid[2][5].dwn_left.dwn_left).to equal @board.grid[4][3]
     end
   end
@@ -111,7 +111,7 @@ RSpec.describe ConnectFour::Board do
       expect(@board.grid[4][0].up_right).to equal @board.grid[3][1]
     end
 
-    xit "can access squares farther to the upper right" do
+    it "can access squares farther to the upper right" do
       expect(@board.grid[5][2].up_right.up_right).to equal @board.grid[3][4]
     end
   end
@@ -121,7 +121,7 @@ RSpec.describe ConnectFour::Board do
       expect(@board.grid[3][3].dwn_right).to equal @board.grid[4][4]
     end
 
-    xit "can access squares farther to the lower right" do
+    it "can access squares farther to the lower right" do
       expect(@board.grid[2][0].dwn_right.dwn_right).to equal @board.grid[4][2]
     end
   end
