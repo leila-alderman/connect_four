@@ -21,12 +21,12 @@ module ConnectFour
 
     # Replace the #inspect method so that it doesn't kill RSpec
     def inspect
-      "I'm located at #{row} row and #{col} col"
+      "I'm located at row #{row} and col #{col}"
     end
 
     # Replace the #to_s method so that it doesn't kill RSpec
     def to_s
-      "I'm located at #{row} row and #{col} col"
+      "I'm located at row #{row} and col #{col}"
     end
 
     private

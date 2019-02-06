@@ -1,24 +1,70 @@
 RSpec.describe ConnectFour::Player do
 
-  before { @player = ConnectFour::Player.new("Laura", "X") }
-  
   context "#initialize" do
-    it "requires a name" do
+    it "requires input" do
       expect { ConnectFour::Player.new }.to raise_error(ArgumentError)
     end
 
-    it "initializes with a name" do
-      expect(@player.name).to eq "Laura"
+    it "initializes with a valid hash" do
+      expect{ ConnectFour::Player.new({name: "Bob", marker: "H"})}.to_not raise_error
     end
-
-    it "initializes with a marker" do
-      expect(@player.marker).to eq "X"
-    end
-
-    it "can return a different marker" do
-      @player.marker = "\u2605"
-      expect(@player.marker).to eq "★"
-    end
-
   end
+
+  before do 
+    @player = ConnectFour::Player.new({
+      name: "Laura", 
+      marker: "X"})
+  end
+
+  context "#name" do
+    it "returns the name" do
+      expect(@player.name).to eql "Laura"
+    end
+
+    it "can't change the name" do
+      expect { @player.name = "Bob" }.to raise_error(NoMethodError)
+    end
+  end
+
+  context "#marker" do
+    it "returns the marker" do
+      expect(@player.marker).to eql "X"
+    end
+
+    it "works for a unicode marker" do
+      player2 = ConnectFour::Player.new({
+        name: "Lisa",
+        marker: "\u2605"
+      })
+      expect(player2.marker).to eql "★"
+    end
+
+    it "can't change the marker" do
+      expect { @player.marker = "O" }.to raise_error(NoMethodError)
+    end
+  end
+
+  context "#drop_token" do
+    before do
+      @board = ConnectFour::Board.new 
+      @board.grid[5][2].value = "O"
+      @board.grid[3][4].value = "O"
+    end
+
+    it "drops tokens to the bottom of empty columns" do
+      @player.drop_token(@board, 0)
+      expect(@board.grid[5][0].value).to eql "X"
+    end
+
+    it "drops tokens on top of a bottom token" do
+      @player.drop_token(@board, 2)
+      expect(@board.grid[4][2].value).to eql "X"
+    end
+
+    it "drops tokens on top of higher up tokens" do
+      @player.drop_token(@board, 4)
+      expect(@board.grid[2][4].value).to eql "X"
+    end
+  end
+
 end

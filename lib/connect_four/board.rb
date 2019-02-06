@@ -1,17 +1,35 @@
 module ConnectFour
   class Board
     attr_accessor :grid
+    attr_reader :rows, :columns
 
-    def initialize
+    def initialize 
+      @rows = 6
+      @columns = 7
       @grid = create_board
+    end
+
+    def add_token(col, marker)
+      for i in 0..(rows-1)
+        current = grid[i][col]
+        bottom = current.bottom
+        if bottom == nil
+          current.value = marker
+        else
+          bottom_value = bottom.value
+          if bottom_value == " "
+            next
+          else
+            current.value = marker
+            return
+          end
+        end
+      end
     end
 
 
     private
     def create_board
-      columns = 7
-      rows = 6
-
       grid = []
       for i in 1..rows
         row = []
@@ -20,7 +38,7 @@ module ConnectFour
         end
         grid.push(row)
       end
-      add_connections(grid, columns, rows)
+      add_connections(grid)
       return grid
     end
 
@@ -31,7 +49,7 @@ module ConnectFour
       })
     end
 
-    def add_connections(grid, columns, rows)
+    def add_connections(grid)
       for i in 0..(rows-1)
         for j in 0..(columns-1)
           element = grid[i][j]
