@@ -21,8 +21,8 @@ RSpec.describe ConnectFour::Square do
       col:        3,
       left:       4,
       right:      5,
-      top:        6,
-      bottom:     7,
+      up:        6,
+      down:     7,
       up_left:    8,
       dwn_left:   9,
       up_right:   10,
@@ -95,33 +95,33 @@ RSpec.describe ConnectFour::Square do
     end
   end  
 
-  context "#top" do
+  context "#up" do
     it "returns the given value" do
-      expect(@square.top).to eql 6
+      expect(@square.up).to eql 6
     end
 
     it "can be changed" do
-      @square.top = 56
-      expect(@square.top).to eql 56
+      @square.up = 56
+      expect(@square.up).to eql 56
     end
 
     it "has a default value of nil" do
-      expect(@default_square.top).to be_nil
+      expect(@default_square.up).to be_nil
     end
   end
 
-  context "#bottom" do
+  context "#down" do
     it "returns the given value" do
-      expect(@square.bottom).to eql 7
+      expect(@square.down).to eql 7
     end
 
     it "can be changed" do
-      @square.bottom = 57
-      expect(@square.bottom).to eql 57
+      @square.down = 57
+      expect(@square.down).to eql 57
     end
 
     it "has a default value of nil" do
-      expect(@default_square.bottom).to be_nil
+      expect(@default_square.down).to be_nil
     end
   end
 

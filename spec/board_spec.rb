@@ -58,31 +58,31 @@ RSpec.describe ConnectFour::Board do
     end
   end
 
-  context "#top" do
-    it "can access squares to the top" do
-      expect(@board.grid[3][3].top).to equal @board.grid[2][3]
+  context "#up" do
+    it "can access squares up" do
+      expect(@board.grid[3][3].up).to equal @board.grid[2][3]
     end
 
-    it "can access squares farther to the top" do
-      expect(@board.grid[2][0].top.top).to equal @board.grid[0][0]
+    it "can access squares farther up" do
+      expect(@board.grid[2][0].up.up).to equal @board.grid[0][0]
     end
 
     it "returns nil outside of the board" do
-      expect(@board.grid[0][4].top).to be_nil
+      expect(@board.grid[0][4].up).to be_nil
     end
   end
 
-  context "#bottom" do
-    it "can access squares to the bottom" do
+  context "#down" do
+    it "can access squares down" do
       expect(@board.grid[4][3].left).to equal @board.grid[4][2]
     end
 
-    it "can access squares farther to the bottom" do
+    it "can access squares farther down" do
       expect(@board.grid[2][5].left.left).to equal @board.grid[2][3]
     end
 
     it "returns nil outside of the board" do
-      expect(@board.grid[5][3].bottom).to be_nil
+      expect(@board.grid[5][3].down).to be_nil
     end
   end
 

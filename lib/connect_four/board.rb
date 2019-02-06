@@ -13,12 +13,12 @@ module ConnectFour
       return "Invalid move: Column #{col} is already full." if grid[0][col].value != " "
       for i in 0..(rows-1)
         current = grid[i][col]
-        bottom = current.bottom
-        if bottom == nil
+        down = current.down
+        if down == nil
           current.value = marker
         else
-          bottom_value = bottom.value
-          if bottom_value == " "
+          down_value = down.value
+          if down_value == " "
             next
           else
             current.value = marker
@@ -65,14 +65,14 @@ module ConnectFour
             element.right = nil
           end
           if i-1 >= 0 && i-1 <= 5
-            element.top = grid[i-1][j]
+            element.up = grid[i-1][j]
           else
-            element.top = nil
+            element.up = nil
           end
           if i+1 >= 0 && i+1 <= 5
-            element.bottom = grid[i+1][j]
+            element.down = grid[i+1][j]
           else
-            element.bottom = nil
+            element.down = nil
           end
           if (i-1 >= 0 && i-1 <= 5) && (j-1 >= 0 && j-1 <= 6)
             element.up_left = grid[i-1][j-1]

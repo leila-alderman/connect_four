@@ -1,7 +1,7 @@
 module ConnectFour
   class Square
     attr_reader :row, :col
-    attr_accessor :value, :left, :right, :top, :bottom
+    attr_accessor :value, :left, :right, :up, :down
     attr_accessor :up_left, :dwn_left, :up_right, :dwn_right
 
     def initialize(input)
@@ -11,8 +11,8 @@ module ConnectFour
       @value = args[:value]
       @left = args[:left]
       @right = args[:right]
-      @top = args[:top]
-      @bottom = args[:bottom]
+      @up = args[:up]
+      @down = args[:down]
       @up_left = args[:up_left]
       @dwn_left = args[:dwn_left]
       @up_right = args[:up_right]
@@ -35,8 +35,8 @@ module ConnectFour
       value: " ",
       left: nil,
       right: nil,
-      top: nil,
-      bottom: nil,
+      up: nil,
+      down: nil,
       up_left: nil,
       dwn_left: nil,
       up_right: nil,
