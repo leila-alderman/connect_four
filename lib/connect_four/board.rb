@@ -10,6 +10,7 @@ module ConnectFour
     end
 
     def add_token(col, marker)
+      return "Invalid move: Column #{col} is already full." if grid[0][col].value != " "
       for i in 0..(rows-1)
         current = grid[i][col]
         bottom = current.bottom

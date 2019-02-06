@@ -130,6 +130,7 @@ RSpec.describe ConnectFour::Board do
     before do
       @board.grid[5][2].value = "X"
       @board.grid[3][4].value = "O"
+      @board.grid[0][1].value = "X"
     end
 
     it "drops tokens to the bottom of empty columns" do
@@ -146,6 +147,11 @@ RSpec.describe ConnectFour::Board do
       @board.add_token(4, "Y")
       expect(@board.grid[2][4].value).to eql "Y"
     end
+
+    it "returns error message when a column is full" do
+      expect(@board.add_token(1, "X")).to eql "Invalid move: Column 1 is already full."
+    end
+
   end
 
 end

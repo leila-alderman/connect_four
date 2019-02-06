@@ -49,6 +49,7 @@ RSpec.describe ConnectFour::Player do
       @board = ConnectFour::Board.new 
       @board.grid[5][2].value = "O"
       @board.grid[3][4].value = "O"
+      @board.grid[0][1].value = "X"
     end
 
     it "drops tokens to the bottom of empty columns" do
@@ -64,6 +65,10 @@ RSpec.describe ConnectFour::Player do
     it "drops tokens on top of higher up tokens" do
       @player.drop_token(@board, 4)
       expect(@board.grid[2][4].value).to eql "X"
+    end
+
+    it "returns error message when a column is full" do
+      expect(@player.drop_token(@board, 1)).to eql "Invalid move: Column 1 is already full."
     end
   end
 
