@@ -9,14 +9,17 @@ class ConnectFour
 
   def initialize(name_1, name_2)
     @board = Board.new
-    @logic = GameLogic.new
-    @player_1 = Player.new(name_1, "\u2606")
-    @player_2 = Player.new(name_2, "\u2605")
+    @logic = GameLogic.new(@board)
+    @player_1 = Player.new({name: name_1, marker: "\u2606"})
+    @player_2 = Player.new({name: name_2, marker: "\u2605"})
   end
 
-  def start_game
+  def play
+    show_board
+
     
     
   end
+
 
 end
