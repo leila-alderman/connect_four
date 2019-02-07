@@ -1,22 +1,24 @@
-RSpec.describe ConnectFour::Square do
+require "./lib/connect_four/square.rb"
+
+RSpec.describe Square do
   
   context "#initialize" do
     it "raises an error when not given input parameters" do
-      expect { ConnectFour::Square.new }.to raise_error(ArgumentError)
+      expect { Square.new }.to raise_error(ArgumentError)
     end
 
     it "doesn't raise an error when given a valid input hash" do
-      expect { ConnectFour::Square.new({row: 2, col: 4}) }.to_not raise_error
+      expect { Square.new({row: 2, col: 4}) }.to_not raise_error
     end
 
     it "doesn't raise an error when given additional hash values" do
-      expect { ConnectFour::Square.new({row: 2, col: 4, 
+      expect { Square.new({row: 2, col: 4, 
       left: 5, right: 7, dwn_left: 16}) }.to_not raise_error
     end
   end
 
   before do
-    @square = ConnectFour::Square.new({
+    @square = Square.new({
       row:        2,
       col:        3,
       left:       4,
@@ -28,7 +30,7 @@ RSpec.describe ConnectFour::Square do
       up_right:   10,
       dwn_right:  11
       })
-    @default_square = ConnectFour::Square.new({
+    @default_square = Square.new({
       row:    2,
       col:    3
     })

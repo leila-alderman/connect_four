@@ -1,18 +1,21 @@
-RSpec.describe ConnectFour::GameLogic do
+require "./lib/connect_four/game_logic"
+require "./lib/connect_four/board"
+
+RSpec.describe GameLogic do
 
   context "#initialize" do
     it "requires input" do
-      expect { ConnectFour::GameLogic.new }.to raise_error(ArgumentError)
+      expect { GameLogic.new }.to raise_error(ArgumentError)
     end
 
     it "initializes with input" do
-      expect { ConnectFour::GameLogic.new('board')}.to_not raise_error
+      expect { GameLogic.new('board')}.to_not raise_error
     end
   end
 
   context "#board" do
     before do
-      @logic = ConnectFour::GameLogic.new('board')
+      @logic = GameLogic.new('board')
     end
 
     it "can return board" do
@@ -26,8 +29,8 @@ RSpec.describe ConnectFour::GameLogic do
 
   context "#draw" do
     before do
-      @board = ConnectFour::Board.new
-      @logic = ConnectFour::GameLogic.new(@board)  
+      @board = Board.new
+      @logic = GameLogic.new(@board)  
     end
 
     it "returns false on empty board" do
@@ -53,8 +56,8 @@ RSpec.describe ConnectFour::GameLogic do
 
   context "#winner?"
   before do
-    @board = ConnectFour::Board.new
-    @logic = ConnectFour::GameLogic.new(@board)  
+    @board = Board.new
+    @logic = GameLogic.new(@board)  
   end
 
   it "returns false on empty board" do

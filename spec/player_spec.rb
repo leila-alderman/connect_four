@@ -1,17 +1,20 @@
-RSpec.describe ConnectFour::Player do
+require "./lib/connect_four/player.rb" 
+require "./lib/connect_four/board.rb"
+
+RSpec.describe Player do
 
   context "#initialize" do
     it "requires input" do
-      expect { ConnectFour::Player.new }.to raise_error(ArgumentError)
+      expect { Player.new }.to raise_error(ArgumentError)
     end
 
     it "initializes with a valid hash" do
-      expect{ ConnectFour::Player.new({name: "Bob", marker: "H"})}.to_not raise_error
+      expect{ Player.new({name: "Bob", marker: "H"})}.to_not raise_error
     end
   end
 
   before do 
-    @player = ConnectFour::Player.new({
+    @player = Player.new({
       name: "Laura", 
       marker: "X"})
   end
@@ -32,7 +35,7 @@ RSpec.describe ConnectFour::Player do
     end
 
     it "works for a unicode marker" do
-      player2 = ConnectFour::Player.new({
+      player2 = Player.new({
         name: "Lisa",
         marker: "\u2605"
       })
@@ -46,7 +49,7 @@ RSpec.describe ConnectFour::Player do
 
   context "#drop_token" do
     before do
-      @board = ConnectFour::Board.new 
+      @board = Board.new 
       @board.grid[5][2].value = "O"
       @board.grid[3][4].value = "O"
       @board.grid[0][1].value = "X"

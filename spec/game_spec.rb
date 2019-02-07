@@ -1,10 +1,12 @@
-RSpec.describe ConnectFour::Game do
+require "./lib/connect_four/game.rb"
 
-  before { @game = ConnectFour::Game.new("Alice", "Bob") }
+RSpec.describe Game do
+
+  before { @game = Game.new("Alice", "Bob") }
 
   xcontext "#initialize" do
     it "requires two names" do
-      expect { ConnectFour::Game.new("Alice") }.to raise_error(ArgumentError)
+      expect { Game.new("Alice") }.to raise_error(ArgumentError)
     end  
   
     it "initializes with a board" do

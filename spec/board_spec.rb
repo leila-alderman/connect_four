@@ -1,6 +1,8 @@
-RSpec.describe ConnectFour::Board do
+require "./lib/connect_four/board.rb"
+
+RSpec.describe Board do
   before do 
-    @board = ConnectFour::Board.new 
+    @board = Board.new 
   end
 
   context "#initialize" do
