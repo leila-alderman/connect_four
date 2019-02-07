@@ -36,8 +36,37 @@ RSpec.describe ConnectFour do
     end
   end
 
-  context "#play" do
-  
+  context "#show_board" do
+    it "returns some stdout" do
+      expect {@game.show_board}.to output.to_stdout
+    end
+
+    it "shows an empty board" do
+      expect {@game.show_board}.to output("| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 
+|   |   |   |   |   |   |   | 
+|   |   |   |   |   |   |   | 
+|   |   |   |   |   |   |   | 
+|   |   |   |   |   |   |   | 
+|   |   |   |   |   |   |   | 
+|   |   |   |   |   |   |   | 
+").to_stdout
+    end
+
+    it "shows a full board" do
+      @game.board.grid.each do |row|
+        row.each do |element|
+          element.value = "\u2606"
+        end
+      end
+      expect {@game.show_board}.to output("| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 
+| ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | 
+| ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | 
+| ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | 
+| ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | 
+| ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | 
+| ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | 
+").to_stdout
+    end
   end
 
 end

@@ -1,4 +1,4 @@
-# The Board class creates an interconnected grid and then keep track of the board state.
+# The Board class creates an interconnected grid and then keeps track of the board state.
 
 require "./lib/connect_four/square.rb"
 
@@ -30,7 +30,6 @@ class Board
       end
     end
   end
-
 
   private
   def create_board

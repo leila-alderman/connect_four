@@ -1,8 +1,8 @@
 # The Connect Four class brings together the Player, Board, and GameLogic classes to create the game flow.
 
-require "connect_four/player"
-require "connect_four/board"
-require "connect_four/game_logic"
+require "./lib/connect_four/player"
+require "./lib/connect_four/board"
+require "./lib/connect_four/game_logic"
 
 class ConnectFour
   attr_reader :board, :logic, :player_1, :player_2
@@ -16,9 +16,18 @@ class ConnectFour
 
   def play
     show_board
+    
+  end
 
-    
-    
+  def show_board
+    for i in 1..board.columns
+      print "| #{i} " 
+    end
+    print "| \n"
+    board.grid.each do |row|
+      print row.map { |square| "| #{square.value} " }.join
+      print "| \n"
+    end
   end
 
 
