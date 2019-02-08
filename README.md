@@ -17,13 +17,13 @@ This project is a two-player game of Connect Four played in the terminal. This g
 3. To run the tests, you need to have `rspec` installed.
    - First, check to see if `rspec` is already installed by typing `rspec --version` into the command line.
    - If the response is similar to the following, then you already have `rspec` installed and can continue.
- ~~~bash
- RSpec 3.8
-  - rspec-core 3.8.0
-  - rspec-expectations 3.8.2
-  - rspec-mocks 3.8.0
-  - rspec-support 3.8.0
-~~~
+      ```bash
+      RSpec 3.8
+        - rspec-core 3.8.0
+        - rspec-expectations 3.8.2
+        - rspec-mocks 3.8.0
+        - rspec-support 3.8.0
+      ```
    - If you do not see output similar to the above, then you need to install `rspec` by typing `gem install rspec` into the command line.
    - Now, run `rspec --version` again to ensure that it installed correctly.
 4. Use `cd` to move into the main directory and then enter `rspec` to run the tests.
