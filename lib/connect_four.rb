@@ -18,6 +18,7 @@ class ConnectFour
   end
 
   def play
+    system("clear")
     show_board
     print_rules
     while @game_over == false
@@ -55,6 +56,7 @@ Each turn, you can drop one of your tokens in a column by entering the column nu
     col = get_input(player)
     return if @game_over == true
     player.drop_token(board, col)
+    system("clear")
     show_board
   end
 
