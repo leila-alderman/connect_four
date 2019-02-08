@@ -34,6 +34,7 @@ RSpec.describe ConnectFour do
     it "initializes with player 2" do
       expect(@game.player_2.name).to eql "Bob"
     end
+      
   end
 
   context "#show_board" do
@@ -66,6 +67,12 @@ RSpec.describe ConnectFour do
 | ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | 
 | ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | ☆ | 
 ").to_stdout
+    end
+  end
+
+  context "#print_rules" do
+    it "returns some stdout" do
+      expect {@game.show_board}.to output.to_stdout
     end
   end
 
